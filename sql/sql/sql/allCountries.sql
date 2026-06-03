@@ -1,4 +1,4 @@
-ELECT Code,
+SELECT Code,
        Name,
        Continent,
        Region,
