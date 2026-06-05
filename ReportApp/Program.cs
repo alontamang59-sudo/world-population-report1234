@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 
 string connectionString =
-    "server=127.0.0.1;port=3306;database=world;user=root;password=root;";
+    "server=127.0.0.1;port=3306;database=world;user=root;password=root";
 
 PrintTopCountries(connectionString);
 
@@ -11,11 +11,14 @@ static void PrintTopCountries(string connectionString)
     connection.Open();
 
     string sql = @"
-        SELECT Code, Name, Continent, Region, Population
-        FROM country
-        ORDER BY Population DESC
-        LIMIT 10;
-    ";
+SELECT Code,
+       Name,
+       Continent,
+       Region,
+       Population
+FROM country
+ORDER BY Population DESC
+LIMIT 10";
 
     using var command = new MySqlCommand(sql, connection);
     using var reader = command.ExecuteReader();
